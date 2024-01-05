@@ -1,5 +1,12 @@
 
+console.log('?');
+const dynamicImage = document.querySelector('.overlay');
+const activeImage =  document.querySelector('.background-image');
 
-const dynamic_image = document.querySelector('.overlay');
+dynamicImage.addEventListener('mousemove', position_y);
 
-dynamic_image.addEventListener // was here*
+function position_y(e){ // 0 - 745
+
+activeImage.style.cssText = `
+background-position: 50% ${e.offsetY / 7.5}%;`
+}

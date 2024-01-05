@@ -8,12 +8,11 @@ height: 2000px;
 margin: 0px;
 }
 
-.overlay {
-background-color: greenyellow;
+.overlay { /* may be redundant */
+background-color: transparent;
 position: fixed;
-
 margin-top: 40px;
-width: 70%;
+width: 100%;
 height: 90%;
 }
 
@@ -50,7 +49,6 @@ height: 1000px;
 .background-image {
 background-image: url("/images/IMG_2823.jpg");
 height: 500px;
-background-position: 50% 40%;
 }
 
 .body-layer-bottom {
