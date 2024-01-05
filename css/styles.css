@@ -8,6 +8,15 @@ height: 2000px;
 margin: 0px;
 }
 
+.overlay {
+background-color: greenyellow;
+position: fixed;
+
+margin-top: 40px;
+width: 70%;
+height: 90%;
+}
+
 h1 {
 position: absolute;
 color: #0070c0; /* sample-text */
@@ -30,9 +39,18 @@ height: 335px;
 }
 
 .center-content {
+display: flex;
+flex-direction: column;
+justify-content: center;
+
 background-color: cyan;
-height: 600px;
+height: 1000px;
+}
+
+.background-image {
 background-image: url("/images/IMG_2823.jpg");
+height: 500px;
+background-position: 50% 40%;
 }
 
 .body-layer-bottom {
