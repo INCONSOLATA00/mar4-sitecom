@@ -11,15 +11,16 @@ margin: 0px;
 .overlay { /* may be redundant */
 background-color: transparent;
 position: fixed;
-margin-top: 40px;
+
+top: 200px;
 width: 100%;
-height: 90%;
+height: 40%;
 }
 
 h1 {
 position: absolute;
 color: #0070c0; /* sample-text */
-background-color: transparent;
+background-color: transparent; /* ??? */
 }
 
 .wrapper-spacing { /* also main background / encasing - background-color: rgba(169, 158,136, 0.3);*/
