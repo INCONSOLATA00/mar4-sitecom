@@ -9,7 +9,7 @@ margin: 0px;
 }
 
 .overlay { /* may be redundant */
-background-color: transparent;
+background-color: greenyellow;
 position: fixed;
 
 top: 200px;
