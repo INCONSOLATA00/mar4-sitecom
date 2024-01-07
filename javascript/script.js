@@ -3,29 +3,39 @@
 const dynamicImage = document.querySelector('.overlay');
 const activeImage =  document.querySelector('.background-image');
 
-let intervalId;
-let timeoutId;
-
-let someValue = 0;
-
+mouseMove = false;
+let iterations = 0;
 dynamicImage.addEventListener('mousemove', position_y);
 
-function position_y(e) { // 0 - 745,  => (50.048 - 65.024)
-let mod = 50 + e.offsetY / 20.5;
-console.log(mod);
+function position_y(e) {
+let dynaMap = e.offsetY; // to add ramp value*
+mouseMove = true;
 
-intervalId = setInterval(() => {
-someValue += 1;
-console.log(someValue);    
+activeImage.style.cssText =
+`background-position-y: ${dynaMap / 50}%;`
 
-if(someValue == 10) {
-clearInterval(intervalId);
-someValue = 0;
+setTimeout(() => {
+mouseMove = false;
+console.log('see false after delay')
+
+}, 100);  // create a seperate value that +=  position-y
+
+function counter(){
+
+setTimeout(() => {
+iterations += 1;
+console.log(iterations);
+
+if(iterations < 10) {
+counter();
+
+} else if(iterations > 10) { // WAS HERE*
 }
 
-},50)
-dynamicImage.removeEventListener('mousemove', position_y);
-timeoutId = setTimeout(() => {dynamicImage.addEventListener('mousemove', position_y);
-clearTimeout(timeoutId);
-},2000)
-}
+}, 1000);
+} 
+counter();
+
+} // position_y
+
+
