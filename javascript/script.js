@@ -3,39 +3,78 @@
 const dynamicImage = document.querySelector('.overlay');
 const activeImage =  document.querySelector('.background-image');
 
-mouseMove = false;
-let iterations = 0;
+let bgPositionY = +activeImage.style.backgroundPositionY;
+let initializer = true;
+let fixedValue = true;
+
+let mouseMove = false
+
+let pastValue;
+let operator;
+
 dynamicImage.addEventListener('mousemove', position_y);
 
 function position_y(e) {
-let dynaMap = e.offsetY; // to add ramp value*
+let dynaMap = e.offsetY;
 mouseMove = true;
+
+if(pastValue > dynaMap) {
+console.log('decrease');
+operator = '-';
+} else if (pastValue < dynaMap) {
+console.log('increase');
+operator = '+';
+}
+
+pastValue = dynaMap;
 
 activeImage.style.cssText =
 `background-position-y: ${dynaMap / 50}%;`
-
-setTimeout(() => {
-mouseMove = false;
-console.log('see false after delay')
-
-}, 100);  // create a seperate value that +=  position-y
-
-function counter(){
-
-setTimeout(() => {
-iterations += 1;
-console.log(iterations);
-
-if(iterations < 10) {
-counter();
-
-} else if(iterations > 10) { // WAS HERE*
 }
 
-}, 1000);
-} 
-counter();
+(function toggleRecursion (){
+setTimeout(() => {
+if(initializer  == true && mouseMove == true) {
 
-} // position_y
+setTimeout(() => {
+fixedValue = false;
+}, 20);
 
+mouseMove = false; 
+toggleRecursion();
+}}, 500);} ) // SEE IMPORTANT
+();
+
+(function setCondition (){
+setTimeout(() => {
+if(fixedValue  == true) {
+mouseMove = false; 
+setCondition();
+}}, 1000);} )
+();
+
+(function getCondition (){
+setTimeout(() => {
+if(fixedValue  == true) {
+getCondition();
+
+if(mouseMove == true) {
+seeDelay();
+}
+}}, 20);} )(); 
+
+function seeDelay() {
+setTimeout(() => {
+if (operator == '+') {
+activeImage.style.backgroundPositionY = (bgPositionY -= 1) + "px";
+console.log('runs');
+} else if (operator == '-') {
+activeImage.style.backgroundPositionY = (bgPositionY += 1) + "px";
+console.log('runs');
+}
+}, 100);}
+
+// defaultColor.style.backgroundColor = color;
+// let alsoDefaultColor = +defaultColor.style.opacity;
+// defaultColor.style.opacity = alsoDefaultColor += 0.1;
 
