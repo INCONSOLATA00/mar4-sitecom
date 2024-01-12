@@ -1,80 +1,29 @@
 
+const listen_area = document.querySelector('.image-wrapper')
+const also_background_image = document.querySelector('.also-background-image')
+const background_image =  document.querySelector('.background-image');
 
-const dynamicImage = document.querySelector('.overlay');
-const activeImage =  document.querySelector('.background-image');
 
-let bgPositionY = +activeImage.style.backgroundPositionY;
-let initializer = true;
-let fixedValue = true;
+also_background_image.style.cssText =
+`background-position: ${40}% ${60}%;`
 
-let mouseMove = false
+background_image.style.cssText =
+`background-position: ${40}% ${60}%;`
 
-let pastValue;
-let operator;
 
-dynamicImage.addEventListener('mousemove', position_y);
 
-function position_y(e) {
-let dynaMap = e.offsetY;
-mouseMove = true;
 
-if(pastValue > dynaMap) {
-console.log('decrease');
-operator = '-';
-} else if (pastValue < dynaMap) {
-console.log('increase');
-operator = '+';
+
+listen_area.addEventListener('mousemove', position00);
+
+function position00(e) {
+also_background_image.style.cssText =
+`background-position: ${40 - (e.offsetX *-1) / 80}% ${60 - (e.offsetY *-1)  / 80}%;`
+    
+background_image.style.cssText =
+`background-position: ${40 - (e.offsetX *-1) / 80}% ${60 - (e.offsetY *-1)  / 80}%;`
 }
 
-pastValue = dynaMap;
 
-activeImage.style.cssText =
-`background-position-y: ${dynaMap / 50}%;`
-}
 
-(function toggleRecursion (){
-setTimeout(() => {
-if(initializer  == true && mouseMove == true) {
-
-setTimeout(() => {
-fixedValue = false;
-}, 20);
-
-mouseMove = false; 
-toggleRecursion();
-}}, 500);} ) // SEE IMPORTANT
-();
-
-(function setCondition (){
-setTimeout(() => {
-if(fixedValue  == true) {
-mouseMove = false; 
-setCondition();
-}}, 1000);} )
-();
-
-(function getCondition (){
-setTimeout(() => {
-if(fixedValue  == true) {
-getCondition();
-
-if(mouseMove == true) {
-seeDelay();
-}
-}}, 20);} )(); 
-
-function seeDelay() {
-setTimeout(() => {
-if (operator == '+') {
-activeImage.style.backgroundPositionY = (bgPositionY -= 1) + "px";
-console.log('runs');
-} else if (operator == '-') {
-activeImage.style.backgroundPositionY = (bgPositionY += 1) + "px";
-console.log('runs');
-}
-}, 100);}
-
-// defaultColor.style.backgroundColor = color;
-// let alsoDefaultColor = +defaultColor.style.opacity;
-// defaultColor.style.opacity = alsoDefaultColor += 0.1;
 
