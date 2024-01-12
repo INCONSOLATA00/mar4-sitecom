@@ -11,10 +11,10 @@ let y = 0;
 function recursion00() {
 
 background_image.style.cssText =
-`background-position: ${x / 70}% ${y / 170}%;`
+`background-position: ${(500 + x) / 70}% ${(9200 + y) / 170}%;`
 
 also_background_image.style.cssText =
-`background-position: ${x / 170}% ${y / 170}%;`
+`background-position: ${(500 + x) / 170}% ${(9200 + y) / 170}%;`
 
 setTimeout(() =>{
 
@@ -33,10 +33,9 @@ recursion00();
 function alsoRecursion00() {
 
 background_image.style.cssText =
-`background-position: ${x / 170}% ${y / 170}%;`
-
+`background-position: ${(500 + x) / 70}% ${(9200 + y) / 170}%;`
 also_background_image.style.cssText =
-`background-position: ${x / 170}% ${y / 170}%;`
+`background-position: ${(500 + x) / 170}% ${(9200 + y) / 170}%;`
     
 setTimeout(() =>{
     
