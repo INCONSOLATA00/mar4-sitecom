@@ -1,67 +1,74 @@
 body {
 display: flex;
-background-color: #AA9E92;
+background-color: white;
 flex-direction: column;
 align-items: center;
 width: 100%;
-height: 2000px;
+height: 922px;
 margin: 0px;
 }
 
 #header {
 display: flex;
+background-image: linear-gradient(to right, white , #d3d2d0);
 flex-direction: column;
 justify-content: center;
-
-background-image: linear-gradient(to right, #edeae8 , #d3d2d0);
 width: 100%;
-height: 240px;
+height: 72px;
 border-bottom: solid;
-border-width: 10px;
 border-color: #d3d2d0;
+box-shadow: 8px 2.8px 8px -5px;
+border-width: 3px;
+padding-top: 2px;
 }
 
 /* logo */
 
 #header hgroup span {
 display: block;
-font-family: 'Zen Antique', serif;
-font-size: 60px;
 background-color: white;
-
-width: 100px;
+font-family: 'Zen Antique', serif;
+color: #374151;
+font-size: 25px;
+width: 41px;
 }
 
 #header hgroup {
 display: block;
-width: 206px;
+width: 93px;
+height: 47px;
 border-bottom: solid;
 border-top: solid;
-border-width: 3px;
+border-color: #374151;
+border-width: 2.3px;
 }
 
 sub {
+position: relative;
 background-color: #9ce6ff;
-line-height: 30px
+font-size: 6px;
+bottom: 9.78px;
 }
 
 /* logo end */
 
 #header div {
-margin: 0 0 105.2px 36px;
+/* background-color: greenyellow; */
+margin: 0 0 10.79px 33px;
+width: 700px;
 }
 
 .body-layer-top {
 position: absolute;
-background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(52,70,86,0.1));
+background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(134,144,153,0.9));
 width: 100%;
-height: 335px;
+height: 227px;
 z-index: 2;
 }
 
 .body-layer-bottom { /* gradient */
-background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(52,70,86,0.4));
-height: 800px;
+background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(134, 144, 153, 0.9));
+height: 222px;
 z-index: 2;
 }
     
@@ -77,37 +84,47 @@ height: 100%;
 .texture-top-portion {
 position: absolute;
 background-image: url("/images/brands-people-dwySHxLsofc-unsplash\ \(flipped\).jpg");
-background-position-y: 1320px;
-background-position-x: -500px;
+background-position-y: 1597px;
+background-position-x: -762px;
 width: 100%;
-height: 480px;
-opacity: 0.8;
+height: 247px;
+opacity: 0.6;
 z-index: 1;
-box-shadow: 5px 6px 10px -5px;
+box-shadow: -6px 9.1px 5px -2px;
 border-bottom: solid;
 border-width: 3px;
 border-color: #d3d2d0;
 }
 
+#second-half {
+position: relative;
+z-index: 3;
+
+background-image: linear-gradient(to right, white , #d3d2d0);
+width: 100%;
+height: 330px;
+
+top: 119.8px;
+
+border-style: solid;
+border-f: #9ce6ff;
+border-bottom: #9ce6ff;
+}
+
 .texture-bottom-portion {
 position: absolute;
 background-image: url("/images/brands-people-dwySHxLsofc-unsplash.jpg");
-background-position-y: center;
-height: 1080px;
+background-position-y: 56%;
+height: 461px;
 width: 100%;
-opacity: 0.5;
-top: 915px;
+opacity: 0.6;
+top: 456px;
 z-index: 1;
-
-box-shadow: 5px -6px 8px -5px;
-border-top: 3px solid #d3d2d0 ;
+box-shadow: 3px -8px 8px -5px;
+border-top: 3px solid #d3d2d0;
 }
 
-.content-within-borders {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 482px;
+.first-half {
 width: 100%;
 height: 430px;
 }
@@ -117,33 +134,53 @@ position: absolute;
 background-image: url("/images/IMG_2823\ \(larger\).jpg");
 background-repeat: no-repeat;
 width: 100%;
-height: 400px;
-filter: blur(2.5px);
-top: 500px;
+height: 201px;
+filter: blur(1.4px);
+top: 254px;
 z-index: 3;
+}
+
+#card {
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: absolute;
+background-color: #edeae8;
+height: 71px;
+width:  485.8px;
+top: 279px;
+left: 828.5px;
+z-index: 5;
+border-style: groove;
+border-radius: 4.8px 4.8px 4.8px 4.8px;
+box-shadow: 1px -1px 32px -16px;
+border-width: 2.6px;
+padding-top: 4px;
+}
+
+#card p {
+font-family: 'Titillium Web', sans-serif;
+font-weight: 500;
+font-stretch: expanded;
+font-size: 10.3px;
+line-height: 1.24;
+width: 88%;
+height: 78%;
 }
 
 .background-image {
 position: absolute;
 background-image: url("/images/IMG_2823.jpg");
 background-repeat: no-repeat;
-width: 1180px;
-height: 360px;
-top: 520px;
+width: 916px;
+height: 162px;
+top: 272px;
 left: 26px;
 z-index: 4;
-border-radius: 3.5px 40px 3.5px 40px;
-border-width: 2.2px;
+border-radius: 2.5px 200px 2.5px 200px;
+border-width: 1px;
+border-color: black;
 border-style: solid;
 }
-
-/*
-.image-overlay {
-position: absolute;
-background-color: transparent;
-width: 1614px;
-height: 400px;
-top: 500px;
-z-index: 5;
-}
-*/
