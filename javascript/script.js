@@ -1,4 +1,4 @@
-const also_background_image = document.querySelector('.also-background-image')
+const also_background_image = document.querySelector('.also-background-image');
 const background_image =  document.querySelector('.background-image');
 
 cardTitle = document.querySelector('#card p:nth-child(1)');
@@ -7,9 +7,6 @@ const card = document.querySelector('#card p:nth-child(2)');
 let x = 0;
 let y = 0;
 let i = 0;
-
-let text_animation = true;
-
 
 const card_text = [
 { title: 'Post Construction Cleaning', text: "Renovations and Construction can be messy. After the work is finished, a thorough cleaning is critical to make the work shine and the space ready for use. Our experienced professionals can help you make the most of your investment." },
@@ -21,7 +18,6 @@ const card_text = [
 
 cardTitle.textContent = card_text[i].title;
 card.textContent = card_text[i].text;
-
 
 (function() {
 
@@ -46,8 +42,6 @@ card.textContent = card_text[i].text;
 }
 
 recursion02();
-
-// ----------------
 
 function recursion00() {
 
