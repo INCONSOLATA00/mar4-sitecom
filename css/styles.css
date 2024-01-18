@@ -7,7 +7,7 @@ margin: 0px;
 
 #header {
 background-image: linear-gradient(to right, white , #d3d2d0);
-width: 100%;
+width: 1345px;
 height: 72px;
 border-bottom: solid;
 border-color: #d3d2d0;
@@ -96,7 +96,7 @@ background-color: #9ce6ff;
 .body-layer-top {
 position: absolute;
 background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(134,144,153,0.9));
-width: 100%;
+width: 1345px;
 height: 246px;
 z-index: 2;
 }
@@ -123,7 +123,6 @@ margin-bottom: 12px;
 }
 
 .body-layer-top > p:nth-child(4) {
-width: 100%;
 left: 216.5px;
 position: inherit;
 text-align: center;
@@ -153,7 +152,7 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 background-color: transparent;
-width: 100%;
+width: 1345px;
 height: 100%;
 }
 
@@ -162,7 +161,7 @@ position: absolute;
 background-image: url("/images/brands-people-dwySHxLsofc-unsplash\ \(flipped\).jpg");
 background-position-y: 1597px;
 background-position-x: -762px;
-width: 100%;
+width: 1345px;
 height: 247px;
 box-shadow: -6px 9.1px 5px -2px;
 border-bottom: solid;
@@ -176,7 +175,7 @@ opacity: 0.6;
 position: relative;
 z-index: 3;
 background-image: linear-gradient(to right, white , #d3d2d0);
-width: 100%;
+width: 1345px;
 height: 458px;
 top: 101.8px;
 border-width: 3px;
@@ -186,11 +185,11 @@ border-color: #d3d2d0;
 
 #second-half > p {
 position: inherit;
+white-space: 'nowrap';
 text-decoration: underline;
 text-decoration-color: #9ce6ff;
 text-underline-offset: 9.4px;
-width: 800px;
-white-space: 'nowrap';
+width: 720px;
 font-size: 17.7px;
 top: 18px;
 left: 324px;
@@ -202,7 +201,7 @@ position: absolute;
 background-image: url("/images/brands-people-dwySHxLsofc-unsplash.jpg");
 background-position-y: 56%;
 height: 461px;
-width: 100%;
+width: 1345px;
 top: 456px;
 box-shadow: 3px -8px 8px -5px;
 border-top: 3px solid #d3d2d0;
@@ -219,7 +218,7 @@ height: 430px;
 position: absolute;
 background-image: url("/images/IMG_2823\ \(larger\).jpg");
 background-repeat: no-repeat;
-width: 100%;
+width: 1345px;
 height: 201px;
 filter: blur(1.4px);
 top: 254px;
