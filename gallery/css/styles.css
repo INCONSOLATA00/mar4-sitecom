@@ -1,5 +1,8 @@
 body {
-background-color: white;
+display: flex;
+background-color: #374151;
+flex-direction: column;
+align-items: center;
 width: 100%;
 height: 922px;
 margin: 0px;
@@ -97,7 +100,7 @@ background-color: #9ce6ff;
 position: absolute;
 background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(134,144,153,0.9));
 width: 100%;
-height: 246px;
+height: 351px;
 z-index: 2;
 }
 
@@ -133,16 +136,18 @@ top: 150px;
 }
 
 .body-layer-bottom { /* gradient */
-background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(134, 144, 153, 0.9));
+position: relative;
+background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(134, 144, 153, 0.7));
 height: 222px;
+top: 319px;
 }
 
-.body-layer-bottom p {
+.div p:nth-child(2) {
 position: absolute;
 color: white;
 font-size: 12.46px;
 height: 10px;
-top: 859px;
+top: 90px;
 left: 589px;
 opacity: 0.4;
 z-index: 3;
@@ -163,7 +168,7 @@ background-image: url("/images/brands-people-dwySHxLsofc-unsplash\ \(flipped\).j
 background-position-y: 1597px;
 background-position-x: -762px;
 width: 100%;
-height: 247px;
+height: 132px;
 box-shadow: -6px 9.1px 5px -2px;
 border-bottom: solid;
 border-width: 3px;
@@ -200,10 +205,10 @@ opacity: 0.6;
 .texture-bottom-portion {
 position: absolute;
 background-image: url("/images/brands-people-dwySHxLsofc-unsplash.jpg");
-background-position-y: 56%;
-height: 461px;
+background-position-y: 54%;
+height: 382px;
 width: 100%;
-top: 456px;
+top: 539px;
 box-shadow: 3px -8px 8px -5px;
 border-top: 3px solid #d3d2d0;
 z-index: 1;
