@@ -16,7 +16,7 @@ border-width: 3px;
 padding-top: 2px;
 }
 
-#header hgroup span {
+#header span {
 display: block;
 font-family: 'Zen Antique', serif;
 color: #374151;
@@ -237,10 +237,9 @@ height: 105px;
 width:  485.8px;
 top: 279px;
 left: 828.5px;
-border-style: groove;
+border: 2.6px groove;
 border-radius: 4.8px 4.8px 4.8px 4.8px;
 box-shadow: 1px -1px 32px -16px;
-border-width: 2.6px;
 padding-top: 7px;
 padding-bottom: 30px;
 z-index: 5;
@@ -273,8 +272,7 @@ height: 162px;
 top: 272px;
 left: 26px;
 border-radius: 2.5px 200px 2.5px 200px;
-border-width: 1px;
+border: 1px solid;
 border-color: black;
-border-style: solid;
 z-index: 4;
 }
