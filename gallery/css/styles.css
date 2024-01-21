@@ -130,7 +130,7 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 position: absolute;
-background-color: black;
+background-color: rgba(0, 0, 0, 0.856);
 width: 1345px;
 height: 534px;
 z-index: 2;
@@ -142,10 +142,18 @@ box-shadow: -100px 30px 200px 20px;
 main > button {
 width: 40px;
 height: 200px;
-border-style: groove;
+background-color: black;
+color: #6b6b6b;
+font-size: 26px;
+border-style: none;
 margin-left: 30px;
 margin-right: 30px;
 margin-bottom: 65px;
+}
+
+main > button:hover {
+background-color: #6b6b6b;
+color: black;
 }
 
 main > div {  /* SEE GALLERY */
