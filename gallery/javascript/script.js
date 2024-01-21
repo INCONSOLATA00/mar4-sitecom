@@ -30,7 +30,7 @@ image_index -= 1;
 gallery_images[image_index - 1].style.cssText =
 `border-radius: 10px;`
 
-if(last_index +2 <= 8) {
+if(last_index +2 <= 10) {
 gallery_images[last_index - 1].style.cssText =
 `border-radius: 0px;`
 }
