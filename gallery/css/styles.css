@@ -135,8 +135,7 @@ width: 1345px;
 height: 534px;
 z-index: 2;
 top: 151px;
-opacity: 0.8;
-box-shadow: -100px 30px 200px 20px;
+box-shadow: -20px 30px 240px 70px;
 }
 
 main > button {
@@ -159,11 +158,11 @@ color: black;
 main > div {  /* SEE GALLERY */
 display: flex;
 align-items: end;
-background-color: white;
 border: 1px solid;
 width: 857.5px;
 height: 525px;
 margin-bottom: 4px;
+background-size: 857.5px 525px;
 }
 
 .image-selection { /* SEE FLEX */
