@@ -15,12 +15,15 @@ function navigate_right(){
 if(image_index > -1 && image_index < 7) {
 
 image_index += 1;
-console.log(gallery_images[image_index].src);
-// image_body.style.cssText = `background-image: url("${gallery_images[image_index].src}");`
+
+setInterval(()=>{
+console.log(i);
+image_body.style.cssText = `background-position: ${i}px ${0}px;
+background-image: url("${gallery_images[image_index].src}");`
+},10); // continue to update the location for a fixed period of time*
 
 dynamic_interval();
 
-//
 gallery_images[image_index].style.cssText =
 `border-radius: 10px;`
 gallery_images[image_index - 1].style.cssText =
@@ -32,12 +35,16 @@ function navigate_left(){
 if(image_index > 0 && image_index < 9) {
     
 image_index -= 1;
-console.log(gallery_images[image_index].src);
-// image_body.style.cssText = `background-image: url("${gallery_images[image_index].src}");`
+
+setInterval(()=>{
+console.log(i);
+image_body.style.cssText = `background-position: ${i}px ${0}px;
+background-image: url("${gallery_images[image_index].src}");
+`
+},10); // continue to update the location for a fixed period of time*
 
 dynamic_interval();
 
-//    
 gallery_images[image_index].style.cssText =
 `border-radius: 10px;`
 gallery_images[image_index + 1].style.cssText =
@@ -51,16 +58,9 @@ gallery_images[image_index + 1].style.cssText =
 function dynamic_interval(multiplier = 1){
 setTimeout(()=>{
 
-if(i < 10) {
+if(i < 500) {
 i += 1;
 
-console.log(i);
-dynamic_interval(i);
-image_body.style.cssText = `background-position: ${i}px ${0}px;` // || multiplier 
-}
-
-
-}, multiplier * multiplier * multiplier);
-}
+dynamic_interval(i);}}, multiplier * multiplier * multiplier);}
 
 
