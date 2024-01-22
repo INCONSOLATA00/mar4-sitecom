@@ -18,7 +18,7 @@ image_index += 1;
 
 setInterval(()=>{
 console.log(i);
-image_body.style.cssText = `background-position: ${i}px ${0}px;
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index].src}");`
 },10); // continue to update the location for a fixed period of time*
 
@@ -38,7 +38,7 @@ image_index -= 1;
 
 setInterval(()=>{
 console.log(i);
-image_body.style.cssText = `background-position: ${i}px ${0}px;
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index].src}");
 `
 },10); // continue to update the location for a fixed period of time*
@@ -52,15 +52,12 @@ gallery_images[image_index + 1].style.cssText =
 }
 };
 
-    // ----------------------------------- ***THE "cssText" represents everything, if something decalred in javascript is not changed the next time you 
-    // edit the cssText values, it will remove the old instantiation***
-
 function dynamic_interval(multiplier = 1){
 setTimeout(()=>{
 
-if(i < 500) {
-i += 1;
+if(i < 429) {
+i += 2;
 
-dynamic_interval(i);}}, multiplier * multiplier * multiplier);}
+dynamic_interval(i);}}, multiplier * (multiplier / 8000));}
 
 
