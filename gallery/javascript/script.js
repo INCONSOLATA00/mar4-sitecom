@@ -39,18 +39,12 @@ gallery_images[image_index + 1].style.cssText =
 
 (function(){
 
-const end_exe00 = setInterval(()=>{
+const end_exe = setInterval(()=>{
     console.log('running00');
-    image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
-    background-image: url("${gallery_images[image_index].src}");
-    `
-    },10); // continue to update the location for a fixed period of time*
+    image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${858 + i * 2}px ${0}px;
+    background-image: url("${gallery_images[image_index].src}"), url("${gallery_images[image_index + 1].src}");` // left
+    },10);
 
-const end_exe01 = setInterval(()=>{
-    console.log('running01');
-    image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
-    background-image: url("${gallery_images[image_index].src}");`
-    },10); // continue to update the location for a fixed period of time*
 })();
 
 function dynamic_interval(multiplier = 1){
@@ -63,9 +57,7 @@ dynamic_interval(i);
 } else if(i <= -428) {
 console.log('executed')
 
-clearInterval(end_exe00);
-clearInterval(end_exe01);
-
+clearInterval(end_exe);
 }
 }, multiplier * (multiplier / 8000));}
 
