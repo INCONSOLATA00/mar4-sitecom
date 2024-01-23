@@ -1,14 +1,13 @@
 const gallery_images = document.querySelectorAll('img');
 const image_body = document.querySelector('main > div');
 
-let end_exe;
-function run_end_exe(){
-end_exe = setInterval(_also, 10);
-}
+// can't find way to invoke setTimeout, regular first class invocation throws error but works?
+
 
 let i = 0;
 let image_index = 0;
 let last_index = image_index;
+let also_interval;
 
 gallery_images[image_index].style.cssText =
 `border-radius: 10px;`
@@ -25,7 +24,7 @@ if(image_index > -1 && image_index < 7) {
 
 image_index += 1;
 dynamic_interval();
-run_end_exe();
+also_interval(_also,10);
 
 gallery_images[image_index].style.cssText =
 `border-radius: 10px;`
@@ -39,7 +38,7 @@ if(image_index > 0 && image_index < 9) {
     
 image_index -= 1;
 dynamic_interval();
-run_end_exe();
+also_interval(_also,10);
 
 gallery_images[image_index].style.cssText =
 `border-radius: 10px;`
@@ -52,7 +51,7 @@ gallery_images[image_index + 1].style.cssText =
 
 if(image_index == 1) {
 function _also() {
-
+console.log('???')
 (function(){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${858 + i * 2}px ${0}px;
 background-image: url("${gallery_images[0].src}"), url("${gallery_images[image_index].src}");` // initializer***
@@ -91,7 +90,7 @@ i -= 2;
 dynamic_interval(i);
 
 } else if(i <= -428) {
-clearInterval(end_exe);
+clearInterval(also_interval);
 }}, multiplier * (multiplier / 8000));}
 
 
