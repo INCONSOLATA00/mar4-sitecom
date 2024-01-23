@@ -37,6 +37,8 @@ gallery_images[image_index + 1].style.cssText =
 }
 };
 
+(function(){
+
 const end_exe00 = setInterval(()=>{
     console.log('running00');
     image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
@@ -49,6 +51,7 @@ const end_exe01 = setInterval(()=>{
     image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
     background-image: url("${gallery_images[image_index].src}");`
     },10); // continue to update the location for a fixed period of time*
+})();
 
 function dynamic_interval(multiplier = 1){
 setTimeout(()=>{
