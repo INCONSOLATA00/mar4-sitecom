@@ -15,13 +15,6 @@ function navigate_right(){
 if(image_index > -1 && image_index < 7) {
 
 image_index += 1;
-
-setInterval(()=>{
-console.log(i);
-image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
-background-image: url("${gallery_images[image_index].src}");`
-},10); // continue to update the location for a fixed period of time*
-
 dynamic_interval();
 
 gallery_images[image_index].style.cssText =
@@ -35,14 +28,6 @@ function navigate_left(){
 if(image_index > 0 && image_index < 9) {
     
 image_index -= 1;
-
-setInterval(()=>{
-console.log(i);
-image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
-background-image: url("${gallery_images[image_index].src}");
-`
-},10); // continue to update the location for a fixed period of time*
-
 dynamic_interval();
 
 gallery_images[image_index].style.cssText =
@@ -52,12 +37,35 @@ gallery_images[image_index + 1].style.cssText =
 }
 };
 
+const end_exe00 = setInterval(()=>{
+    console.log('running00');
+    image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
+    background-image: url("${gallery_images[image_index].src}");
+    `
+    },10); // continue to update the location for a fixed period of time*
+
+const end_exe01 = setInterval(()=>{
+    console.log('running01');
+    image_body.style.cssText = `background-position: ${i * 2}px ${0}px;
+    background-image: url("${gallery_images[image_index].src}");`
+    },10); // continue to update the location for a fixed period of time*
+
 function dynamic_interval(multiplier = 1){
 setTimeout(()=>{
 
-if(i < 429) {
-i += 2;
+if(i < 429 && i > -429) {
+i -= 2;
+dynamic_interval(i);
 
-dynamic_interval(i);}}, multiplier * (multiplier / 8000));}
+} else if(i <= -428) {
+console.log('executed')
+
+clearInterval(end_exe00);
+clearInterval(end_exe01);
+
+}
+}, multiplier * (multiplier / 8000));}
+
+// recursion re-initializes interval***
 
 
