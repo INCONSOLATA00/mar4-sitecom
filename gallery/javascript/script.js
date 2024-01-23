@@ -1,7 +1,10 @@
 const gallery_images = document.querySelectorAll('img');
 const image_body = document.querySelector('main > div');
 
-const end_exe = setInterval(_also, 10);
+let end_exe;
+function run_end_exe(){
+end_exe = setInterval(_also, 10);
+}
 
 let i = 0;
 let image_index = 0;
@@ -22,7 +25,7 @@ if(image_index > -1 && image_index < 7) {
 
 image_index += 1;
 dynamic_interval();
-end_exe();
+run_end_exe();
 
 gallery_images[image_index].style.cssText =
 `border-radius: 10px;`
@@ -36,7 +39,7 @@ if(image_index > 0 && image_index < 9) {
     
 image_index -= 1;
 dynamic_interval();
-end_exe();
+run_end_exe();
 
 gallery_images[image_index].style.cssText =
 `border-radius: 10px;`
