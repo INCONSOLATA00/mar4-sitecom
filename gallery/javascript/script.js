@@ -64,6 +64,20 @@ image_body.style.cssText = `background-image: url("${gallery_images[0].src}"), u
 function run_animation(){
 
 switch(image_index) {
+case 0:
+if(navigateRight == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
+last_index = image_index;
+}
+
+if(navigateLeft == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
+last_index = image_index;
+}
+break;
+
 case 1:
 if(navigateRight == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
@@ -182,7 +196,7 @@ i -= 1.5;}
 
 left_button.removeEventListener('click', navigate_left);
 right_button.removeEventListener('click', navigate_right);
-} else if(i <= -428) {
+} else if(i <= 1 - image_position / 2) {console.log('fired');
 
 i = 0;
 
