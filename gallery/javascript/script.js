@@ -14,14 +14,13 @@ function fader(multiplier = 1){
 setTimeout(()=>{
 
 if(j < 10) {
+animating = true;
 j += 0.5;
-fade();
 
 fader(j);
 console.log(j);
-}
 
-}, multiplier * multiplier * (multiplier / 0.4));
+}}, multiplier * multiplier * (multiplier / 6));
 }
 
 //fader();
@@ -36,20 +35,31 @@ gallery_images[i].addEventListener('mouseout', gallery_hover01);
 
 
 function gallery_hover00(e){
-value = 0;
+if(j < 10){
+customInterval00();
+}
 reset();
 fader();
+function customInterval00 (){
+if(j < 10) {
+setTimeout(()=>{
 e.target.style.cssText = 
-`border-radius: ${10}px `;
-}
+`border-radius: ${j}px `;
+customInterval00();
+},1);
+}}
+};
 
 
 function gallery_hover01(e){
 reset();
 fader();
+
 e.target.style.cssText = 
 `border-radius: ${0}px `;
-}
+
+j = 10;
+};
 
 
 let i = 1;
