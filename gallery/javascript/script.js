@@ -7,7 +7,7 @@ const right_button = document.getElementsByClassName('right')[0];
 left_button.addEventListener('click', navigate_left);
 right_button.addEventListener('click', navigate_right);
 
-let i = 0;
+let i = 1;
 let image_index = 0;
 let last_index = image_index;
 
@@ -167,9 +167,9 @@ default:
 }};
 
 
-function dynamic_interval(multiplier = 1){ console.log(image_position);
+function dynamic_interval(){ console.log(image_position);
 setTimeout(()=>{
-if(i < 429 && i > -429) {
+if(i < 429 && i > -430) {
 
 disable_other_button = true;
 dynamic_interval(i);
@@ -185,7 +185,7 @@ left_button.removeEventListener('click', navigate_left);
 right_button.removeEventListener('click', navigate_right);
 } else if(i <= 1 - image_position / 2) {
 
-i = 0;
+i = 1;
 
 disable_other_button = false;
 navigateLeft = false;
@@ -194,7 +194,7 @@ navigateRight = false;
 
 left_button.addEventListener('click', navigate_left);
 right_button.addEventListener('click', navigate_right);
-}}, multiplier * (multiplier / 16000));}
+}}, i * (i / 16000));}
 
 
 
