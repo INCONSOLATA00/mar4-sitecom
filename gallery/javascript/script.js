@@ -7,6 +7,51 @@ const right_button = document.getElementsByClassName('right')[0];
 left_button.addEventListener('click', navigate_left);
 right_button.addEventListener('click', navigate_right);
 
+
+
+let j = 0;
+function fader(multiplier = 1){
+setTimeout(()=>{
+
+if(j < 10) {
+j += 0.5;
+fade();
+
+fader(j);
+console.log(j);
+}
+
+}, multiplier * multiplier * (multiplier / 0.4));
+}
+
+//fader();
+
+for(let i = 0; i < gallery_images.length; i++) {
+gallery_images[i].addEventListener('mouseenter', gallery_hover00);
+}
+
+for(let i = 0; i < gallery_images.length; i++) {
+gallery_images[i].addEventListener('mouseout', gallery_hover01);
+}
+
+
+function gallery_hover00(e){
+value = 0;
+reset();
+fader();
+e.target.style.cssText = 
+`border-radius: ${10}px `;
+}
+
+
+function gallery_hover01(e){
+reset();
+fader();
+e.target.style.cssText = 
+`border-radius: ${0}px `;
+}
+
+
 let i = 1;
 let image_index = 0;
 let last_index = image_index;
@@ -17,7 +62,10 @@ let disable_other_button = false;
 let navigateRight = false;
 let navigateLeft = false;
 
-
+function reset(){
+gallery_images[image_index].style.cssText =
+`border-radius: 0px;`
+}
 gallery_images[image_index].style.cssText =
 `border-radius: 10px;`
 
@@ -31,7 +79,7 @@ navigateLeft = true;
 left_button.removeEventListener('click', navigate_left);
 
 image_position = -858;
-image_index -= 1;
+image_index--;
 dynamic_interval();
 
 gallery_images[image_index].style.cssText =
@@ -49,7 +97,7 @@ navigateRight = true;
 right_button.removeEventListener('click', navigate_right);
 
 image_position = 858;
-image_index += 1;
+image_index++;
 dynamic_interval();
     
 gallery_images[image_index].style.cssText =
