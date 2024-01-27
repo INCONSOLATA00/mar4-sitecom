@@ -7,8 +7,6 @@ const right_button = document.getElementsByClassName('right')[0];
 left_button.addEventListener('click', navigate_left);
 right_button.addEventListener('click', navigate_right);
 
-
-
 let j = 0;
 function fader(multiplier = 1){
 setTimeout(()=>{
@@ -26,19 +24,39 @@ console.log(j);
 //fader();
 
 for(let i = 0; i < gallery_images.length; i++) {
-gallery_images[i].addEventListener('mouseenter', gallery_hover00);
+gallery_images[i].addEventListener('click', gallery_select00);
+gallery_images[i].id = i;
 }
 
-for(let i = 0; i < gallery_images.length; i++) {
-gallery_images[i].addEventListener('mouseout', gallery_hover01);
+let last_image_index;
+let first_image_index;
+
+let initializer = false;
+function gallery_select00(e){
+
+last_image_index = first_image_index;
+first_image_index = e.target.id;
+if(first_image_index > last_image_index){
+}
+
+if(initializer == false){
+document.getElementById(0).style.cssText = 
+`border-radius: 0px `;
+initializer = true;
+
+}else if(first_image_index !== last_image_index){
+console.log(`last_image_index: ${last_image_index}`);
+document.getElementById(last_image_index).style.cssText = 
+`border-radius: 0px `;}
+
+if(first_image_index < last_image_index){
 }
 
 
-function gallery_hover00(e){
-if(j < 10){
+if(j < 10){// ... you may not know how to do this intuitively*** - take some time to think about it, and then google applicable methods
 customInterval00();
 }
-reset();
+reset(); // get rid of this after initializer*
 fader();
 function customInterval00 (){
 if(j < 10) {
@@ -48,17 +66,6 @@ e.target.style.cssText =
 customInterval00();
 },1);
 }}
-};
-
-
-function gallery_hover01(e){
-reset();
-fader();
-
-e.target.style.cssText = 
-`border-radius: ${0}px `;
-
-j = 10;
 };
 
 
@@ -253,6 +260,3 @@ navigateRight = false;
 left_button.addEventListener('click', navigate_left);
 right_button.addEventListener('click', navigate_right);
 }}, i * (i / 16000));}
-
-
-
