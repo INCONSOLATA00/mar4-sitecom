@@ -76,7 +76,7 @@ initializer = true;
 
 image_index = first_image_index;
 navigateRight = true;
-navigate_right(); // conditional may be invalid for mouse exclusivity***
+navigate_right();
 
 }else if(first_image_index !== last_image_index){ console.log('not equal');
 j = 0; // start radius animation
@@ -144,7 +144,7 @@ if(image_index < 7) {
 
 
 navigateRight = true;
-right_button.removeEventListener('click', navigate_right); // DO THIS FOR THE MOUSE TO DISABLE INPUT UNTIL INTERVAL ENDS*
+right_button.removeEventListener('click', navigate_right);
 image_position = 858;
 
 if(buttonUsed == true) {
@@ -168,10 +168,9 @@ image_body.style.cssText = `background-image: url("${gallery_images[0].src}"), u
 })();
 
 function run_animation(){
-
 switch(image_index) {
 case 0:
-if(navigateRight == true) {
+if(navigateRight == true) { // all values are true, but statement won't execute***
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
 }
