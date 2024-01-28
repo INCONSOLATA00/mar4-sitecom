@@ -27,9 +27,8 @@ setTimeout(() =>{
 if(j < 10) {
 animating = true;
 j += 0.5;
-
 fader(j);
-console.log(j);
+
 
 }}, multiplier * multiplier * (multiplier / 6));
 }
@@ -63,26 +62,34 @@ mouse_used();
 last_image_index = first_image_index;
 first_image_index = e.target.id;
 
-console.log(buttonUsed);
-if(first_image_index > last_image_index && buttonUsed == false){ console.log('CHECK ERR');
-navigate_right();}
 
-if(initializer == false && buttonUsed == false){ console.log('CHECK ERR');
+if(first_image_index > last_image_index){ console.log('greater');
+image_index = first_image_index;
+navigateRight = true;
+navigate_right();
+}
+
+if(initializer == false){ console.log('initial value');
 document.getElementById(0).style.cssText = 
 `border-radius: 0px`;
 initializer = true;
 
-image_index = first_image_index -1;
-navigate_right();
+image_index = first_image_index;
+navigateRight = true;
+navigate_right(); // conditional may be invalid for mouse exclusivity***
 
-}else if(first_image_index !== last_image_index && buttonUsed == false){ console.log('CHECK ERR');
-j = 0; // SEE HERE
+}else if(first_image_index !== last_image_index){ console.log('not equal');
+j = 0; // start radius animation
+
 
 document.getElementById(last_image_index).style.cssText = 
 `border-radius: 0px`;}
 
-if(first_image_index < last_image_index && buttonUsed == false){ console.log('CHECK ERR');
-navigate_left();}
+if(first_image_index < last_image_index){ console.log('lesser');
+image_index = first_image_index;
+navigateLeft = true;
+navigate_left();
+}
 
     // --------------------------
 
@@ -110,7 +117,7 @@ gallery_images[image_index].style.cssText =
 
 image_body.style.cssText = `background-image: url("${gallery_images[0].src}");`
 
-function navigate_left(){ console.log('navigate_left');
+function navigate_left(){
 if(image_index > 0) {
 
 navigateLeft = true;
@@ -125,22 +132,22 @@ gallery_images[image_index].style.cssText =
 gallery_images[image_index + 1].style.cssText =
 `border-radius: 0px;`
 dynamic_interval();
-}
-else if (buttonUsed == false) {
-image_index = first_image_index;
 
+}
+if (buttonUsed == false) { console.log('navigate left');
 dynamic_interval();
 };}};
 
 
-function navigate_right(){ console.log('navigate_right');
+function navigate_right(){
 if(image_index < 7) {
+
 
 navigateRight = true;
 right_button.removeEventListener('click', navigate_right); // DO THIS FOR THE MOUSE TO DISABLE INPUT UNTIL INTERVAL ENDS*
 image_position = 858;
 
-if(buttonUsed == true) { console.log('runs00');
+if(buttonUsed == true) {
 image_index++;
 
 gallery_images[image_index].style.cssText =
@@ -149,9 +156,8 @@ gallery_images[image_index - 1].style.cssText =
 `border-radius: 0px;`
 dynamic_interval();
 
-}else if (buttonUsed == false) { console.log('runs01');
-image_index = first_image_index;
-
+}
+if (buttonUsed == false) { console.log('navigate right');
 dynamic_interval();
 };}};
 
@@ -273,7 +279,7 @@ dynamic_interval(i);
 run_animation();
 
 
-console.log('WARNING');
+
 if(navigateLeft == true) {
 i += 1.5;}
 
