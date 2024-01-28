@@ -39,6 +39,7 @@ for(let i = 0; i < gallery_images.length; i++) {
 gallery_images[i].addEventListener('click', gallery_select00);
 gallery_images[i].id = i;}
 
+function mouse_used(){ buttonUsed = false;}
 
 function button_used_left(){ 
 buttonUsed = true;
@@ -54,13 +55,15 @@ let last_image_index;
 let first_image_index;
 
 let initializer = false;
-function gallery_select00(e){
-function mouse_used(){ buttonUsed = false;} // current
 
+
+function gallery_select00(e){
+mouse_used();
 
 last_image_index = first_image_index;
 first_image_index = e.target.id;
 
+console.log(buttonUsed);
 if(first_image_index > last_image_index && buttonUsed == false){ console.log('CHECK ERR');
 navigate_right();}
 
@@ -280,6 +283,9 @@ i -= 1.5;}
 left_button.removeEventListener('click', button_used_left);
 right_button.removeEventListener('click', button_used_right);
 
+for(let i = 0; i < gallery_images.length; i++) {
+gallery_images[i].removeEventListener('click', gallery_select00);}
+
 } else if(i <= 1 - image_position / 2) {
 
 i = 1;
@@ -289,5 +295,8 @@ navigateRight = false;
 
 left_button.addEventListener('click', button_used_left);
 right_button.addEventListener('click', button_used_right);
+
+for(let i = 0; i < gallery_images.length; i++) {
+gallery_images[i].addEventListener('click', gallery_select00);}
 
 }}, i * (i / 16000));}
