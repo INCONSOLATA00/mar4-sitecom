@@ -79,16 +79,14 @@ navigate_right();
 
 }else if(first_image_index !== last_image_index){
 j = 0; // start radius animation
-
-
 document.getElementById(last_image_index).style.cssText = 
 `border-radius: 0px`;}
 
-if(first_image_index < last_image_index && first_image_index - 1 > 0){ console.log('lesser00');  
+if(first_image_index < last_image_index && first_image_index > 0){ console.log('lesser00');  
 image_index = +first_image_index;
 navigateLeft = true;
 navigate_left();
-} else if(first_image_index < last_image_index && first_image_index - 1 == 0){ console.log('lesser01');
+} else if(first_image_index < last_image_index && first_image_index  == 0){ console.log('lesser01');
 image_index = 1;
 navigateLeft = true;
 navigate_left();
