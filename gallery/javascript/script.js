@@ -56,15 +56,14 @@ let first_image_index;
 let initializer = false;
 
 
-function gallery_select00(e){
+function gallery_select00(e){ // CURRENT
 mouse_used();
 
 last_image_index = first_image_index;
 first_image_index = e.target.id;
 
-
-if(first_image_index > last_image_index){ console.log('greater');
-image_index = first_image_index;
+if(first_image_index > last_image_index && initializer == true){ console.log('greater');
+image_index = +first_image_index;
 navigateRight = true;
 navigate_right();
 }
@@ -74,23 +73,27 @@ document.getElementById(0).style.cssText =
 `border-radius: 0px`;
 initializer = true;
 
-image_index = first_image_index;
+image_index = +first_image_index;
 navigateRight = true;
 navigate_right();
 
-}else if(first_image_index !== last_image_index){ console.log('not equal');
+}else if(first_image_index !== last_image_index){
 j = 0; // start radius animation
 
 
 document.getElementById(last_image_index).style.cssText = 
 `border-radius: 0px`;}
 
-if(first_image_index < last_image_index){ console.log('lesser');
-image_index = first_image_index;
+if(first_image_index < last_image_index && first_image_index - 1 > 0){ console.log('lesser00');  
+image_index = +first_image_index;
+navigateLeft = true;
+navigate_left();
+} else if(first_image_index < last_image_index && first_image_index - 1 == 0){ console.log('lesser01');
+image_index = 1;
 navigateLeft = true;
 navigate_left();
 }
-
+    // if first_image_index - 1, is less than 0, call navigate left with no assignment
     // --------------------------
 
 if(j < 10){
@@ -118,7 +121,7 @@ gallery_images[image_index].style.cssText =
 image_body.style.cssText = `background-image: url("${gallery_images[0].src}");`
 
 function navigate_left(){
-if(image_index > 0) {
+if(image_index > 0 || first_image_index == 0) {
 
 navigateLeft = true;
 left_button.removeEventListener('click', navigate_left);
@@ -140,6 +143,7 @@ dynamic_interval();
 
 
 function navigate_right(){
+if(first_image_index == 0) {image_index ++;}
 if(image_index < 7) {
 
 
@@ -167,10 +171,10 @@ dynamic_interval();
 image_body.style.cssText = `background-image: url("${gallery_images[0].src}"), url("${gallery_images[image_index].src}");`
 })();
 
-function run_animation(){
-switch(image_index) {
+function run_animation(){ console.log(image_index);
+switch(image_index) { 
 case 0:
-if(navigateRight == true) { // all values are true, but statement won't execute***
+if(navigateRight == true) { // all values are true, but statement won't execute
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
 }
