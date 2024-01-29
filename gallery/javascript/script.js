@@ -62,8 +62,13 @@ mouse_used();
 last_image_index = first_image_index;
 first_image_index = e.target.id;
 
-if(first_image_index > last_image_index && initializer == true){ console.log('greater');
+if(first_image_index > last_image_index && first_image_index < 7 && initializer == true){ console.log('greater00');
 image_index = +first_image_index;
+navigateRight = true;
+navigate_right();
+
+} else if (first_image_index > last_image_index && first_image_index == 7 && initializer == true) { console.log('greater01');
+image_index = 7;
 navigateRight = true;
 navigate_right();
 }
@@ -86,8 +91,9 @@ if(first_image_index < last_image_index && first_image_index > 0){ console.log('
 image_index = +first_image_index;
 navigateLeft = true;
 navigate_left();
+
 } else if(first_image_index < last_image_index && first_image_index  == 0){ console.log('lesser01');
-image_index = 1;
+image_index = 0;
 navigateLeft = true;
 navigate_left();
 }
@@ -142,7 +148,7 @@ dynamic_interval();
 
 function navigate_right(){
 if(first_image_index == 0) {image_index ++;}
-if(image_index < 7) {
+if(image_index < 7 || first_image_index == 7) {
 
 
 navigateRight = true;
