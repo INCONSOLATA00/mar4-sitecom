@@ -48,7 +48,7 @@ navigate_right();}
 
 
 let last_image_index;
-let first_image_index;
+let first_image_index = 0;
 let initializer = false;
 
 function gallery_select00(e){
@@ -206,99 +206,131 @@ image_body.style.cssText = `background-image: url("${gallery_images[0].src}"), u
 function run_animation(){
 switch(image_index) { 
 case 0:
-if(navigateRight == true) {
+if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateRight == true && buttonUsed == false){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
-if(navigateLeft == true) {
+if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateLeft == true && buttonUsed == false) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 case 1:
-if(navigateRight == true) {
+if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateRight == true && buttonUsed == false){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
-if(navigateLeft == true) {
+if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateLeft == true && buttonUsed == false) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 case 2:
-if(navigateRight == true) {
+if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateRight == true && buttonUsed == false){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
-if(navigateLeft == true) {
+if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateLeft == true && buttonUsed == false) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 case 3:
-if(navigateRight == true) {
+if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateRight == true && buttonUsed == false){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
-if(navigateLeft == true) {
+if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateLeft == true && buttonUsed == false) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 case 4:
-if(navigateRight == true) {
+if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateRight == true && buttonUsed == false){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
-if(navigateLeft == true) {
+if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateLeft == true && buttonUsed == false) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 case 5:
-if(navigateRight == true) {
+if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateRight == true && buttonUsed == false){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
-if(navigateLeft == true) {
+if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateLeft == true && buttonUsed == false) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 case 6:
-if(navigateRight == true) {
+if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateRight == true && buttonUsed == false){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
-if(navigateLeft == true) {
+if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateLeft == true && buttonUsed == false) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 case 7:
-if(navigateRight == true) {
+if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateRight == true && buttonUsed == false){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
-if(navigateLeft == true) {
+if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-}
+} else if(navigateLeft == true && buttonUsed == false) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 // default:
@@ -330,6 +362,7 @@ gallery_images[i].removeEventListener('click', gallery_select00);}
 } else if(i <= 1 - image_position / 2) {
 i = 1;
 j = 0;
+
 disable_other_button = false;
 navigateLeft = false;
 navigateRight = false;
