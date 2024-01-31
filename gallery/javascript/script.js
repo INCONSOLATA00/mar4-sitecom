@@ -164,8 +164,6 @@ gallery_images[i].style.cssText =
 `border-radius: 0px;`}
 
 last_index = image_index;
-
-if(first_image_index == 0) {image_index ++;}
 if(image_index < 7 || first_image_index == 7) {
 
 navigateRight = true;
