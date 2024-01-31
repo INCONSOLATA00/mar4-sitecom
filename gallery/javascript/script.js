@@ -327,18 +327,15 @@ right_button.removeEventListener('click', button_used_right);
 for(let i = 0; i < gallery_images.length; i++) {
 gallery_images[i].removeEventListener('click', gallery_select00);}
 
-
-
 } else if(i <= 1 - image_position / 2) {
-
 i = 1;
 j = 0;
 disable_other_button = false;
 navigateLeft = false;
 navigateRight = false;
 
-left_button.addEventListener('click', button_used_left);
-right_button.addEventListener('click', button_used_right);
+if(image_index > 0) { left_button.addEventListener('click', button_used_left);}
+if(image_index < 7) { right_button.addEventListener('click', button_used_right);}
 
 for(let i = 0; i < gallery_images.length; i++) {
 gallery_images[i].addEventListener('click', gallery_select00);}
