@@ -104,7 +104,7 @@ image_index = 0;
 navigateLeft = true;
 navigate_left();
 
-if(j < 10){  console.log('runs01'); // j may need to be set to 0
+if(j < 10){  console.log('runs01');
 customInterval00();}
 
 fader();
@@ -143,12 +143,12 @@ dynamic_interval();}}
 if (buttonUsed == false) { console.log('navigate left');
 dynamic_interval();};}
 
-if(j < 10){ console.log('runs00');
+if(j < 10 || image_index){ console.log('runs00');
 customInterval00();}
 
 fader();
 function customInterval00 (){
-if(j < 10 && image_index > 0) {
+if(j < 10 && image_index > -1) {
 setTimeout(() =>{
 document.getElementById(image_index).style.cssText = 
 `border-radius: ${j}px`;
@@ -186,7 +186,7 @@ customInterval00();}
 
 fader();
 function customInterval00 (){
-if(j < 10 && image_index < 7) {
+if(j < 10 && image_index < 8) {
 setTimeout(() =>{
 document.getElementById(image_index).style.cssText = 
 `border-radius: ${j}px`;
@@ -206,7 +206,7 @@ image_body.style.cssText = `background-image: url("${gallery_images[0].src}"), u
 function run_animation(){
 switch(image_index) { 
 case 0:
-if(navigateRight == true) { // all values are true, but statement won't execute
+if(navigateRight == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
 }
