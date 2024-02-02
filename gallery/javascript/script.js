@@ -7,7 +7,6 @@ const right_button = document.getElementsByClassName('right')[0];
 left_button.addEventListener('click', button_used_left);
 right_button.addEventListener('click', button_used_right);
 
-
 let i = 1;
 let image_index = 0;
 let last_index;
@@ -17,8 +16,13 @@ let disable_other_button = false;
 
 let navigateRight = false;
 let navigateLeft = false;
-let buttonUsed;
 
+let buttonUsed;
+let buttonState = true;
+
+let count = 0;
+let value = false;
+let value_index;
 
 let j = 0;
 function fader(multiplier = 1){
@@ -30,22 +34,20 @@ j += 0.5;
 fader(j);
 }}, multiplier * multiplier * (multiplier / 6));}
 
-
-
 for(let i = 0; i < gallery_images.length; i++) {
 gallery_images[i].addEventListener('click', gallery_select00);
 gallery_images[i].id = i;}
 
+function mouse_used(){ 
+buttonUsed = false;}
 
-function mouse_used(){ buttonUsed = false;}
 function button_used_left(){ 
 buttonUsed = true;
 navigate_left();}
+
 function button_used_right(){ 
 buttonUsed = true;
 navigate_right();}
-
-
 
 let last_image_index;
 let first_image_index = 0;
@@ -56,18 +58,17 @@ mouse_used();
 last_image_index = first_image_index;
 first_image_index = e.target.id;
 
-
-if(first_image_index > last_image_index && first_image_index < 7 && initializer == true){ console.log('greater00');
+if(first_image_index > last_image_index && first_image_index < 7 && initializer == true){
+value_index = image_index;
 image_index = +first_image_index;
 navigateRight = true;
 navigate_right();
 
-} else if (first_image_index > last_image_index && first_image_index == 7 && initializer == true) { console.log('greater01');
-image_index = 7;
+} else if (first_image_index > last_image_index && first_image_index == 7 && initializer == true) {
 navigateRight = true;
 navigate_right();
 
-if(j < 10){  console.log('runs01');
+if(j < 10){
 customInterval00();}
 
 fader();
@@ -81,30 +82,31 @@ customInterval00();
 }}}
 
 
-
-if(initializer == false){ console.log('initial value');
+if(initializer == false){
 document.getElementById(0).style.cssText = 
 `border-radius: 0px`;
 initializer = true;
 
+value_index = image_index;
 image_index = +first_image_index;
 navigateRight = true;
 navigate_right();
 }
 
 
+if(first_image_index < last_image_index && first_image_index > 0){
 
-if(first_image_index < last_image_index && first_image_index > 0){ console.log('lesser00');  
+value_index = image_index;
 image_index = +first_image_index;
 navigateLeft = true;
 navigate_left();
 
-} else if(first_image_index < last_image_index && first_image_index  == 0){ console.log('lesser01');
+} else if(first_image_index < last_image_index && first_image_index == 0){
 image_index = 0;
 navigateLeft = true;
 navigate_left();
 
-if(j < 10){  console.log('runs01');
+if(j < 10){
 customInterval00();}
 
 fader();
@@ -115,16 +117,27 @@ document.getElementById(image_index).style.cssText =
 `border-radius: ${j}px`;
 customInterval00();
 },1);
-}}
-}};
+}}}};
+
+function navigate_left(){ console.log(count);
+
+if(buttonState !== buttonUsed) {
+if(count > 0){
+value = true;
+console.log(value);
+}} else {
+value = false;
+console.log(value);
+};
+
+buttonState = buttonUsed;
+last_index = image_index;
+count++
 
 
-
-function navigate_left(){
 for(i = 0; i < gallery_images.length; i++){
 gallery_images[i].style.cssText =
-`border-radius: 0px;`}
-last_index = image_index;
+`border-radius: 0px;`};
 
 if(image_index > 0 || first_image_index == 0) {
 
@@ -134,16 +147,17 @@ image_position = -858;
 
 if(buttonUsed == true) {
 image_index--;
+value_index = image_index;
 
 if(image_index !== last_index){
 gallery_images[last_index].style.cssText =
 `border-radius: 0px;`
 dynamic_interval();}}
 
-if (buttonUsed == false) { console.log('navigate left');
+if (buttonUsed == false) {
 dynamic_interval();};}
 
-if(j < 10 || image_index){ console.log('runs00');
+if(j < 10 || image_index){
 customInterval00();}
 
 fader();
@@ -156,14 +170,26 @@ customInterval00();
 },1);
 }}};
 
+function navigate_right(){ console.log(count); // current
+
+if(buttonState !== buttonUsed) {
+if(count > 0){
+value = true;
+console.log(value);
+}} else {
+value = false;
+console.log(value);
+};
+
+buttonState = buttonUsed;
+last_index = image_index;
+count++
 
 
-function navigate_right(){ 
 for(i = 0; i < gallery_images.length; i++){
 gallery_images[i].style.cssText =
-`border-radius: 0px;`}
+`border-radius: 0px;`};
 
-last_index = image_index;
 if(image_index < 7 || first_image_index == 7) {
 
 navigateRight = true;
@@ -172,16 +198,17 @@ image_position = 858;
 
 if(buttonUsed == true) {
 image_index++;
+value_index = image_index;
 
 if(image_index !== last_index){
 gallery_images[last_index].style.cssText =
 `border-radius: 0px;`
 dynamic_interval();}}
 
-if (buttonUsed == false) { console.log('navigate right');
+if (buttonUsed == false) {
 dynamic_interval();};}
 
-if(j < 10){  console.log('runs01');
+if(j < 10){
 customInterval00();}
 
 fader();
@@ -193,8 +220,6 @@ document.getElementById(image_index).style.cssText =
 customInterval00();
 },1);
 }}};
-
-
 
 (function(){
 gallery_images[0].style.cssText =
@@ -209,14 +234,20 @@ case 0:
 if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateRight == true && buttonUsed == false){
+} else if(navigateRight == true && buttonUsed == false && value == true){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateRight == true && buttonUsed == false && value == false){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
 if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateLeft == true && buttonUsed == false) {
+} else if(navigateLeft == true && buttonUsed == false && value == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateLeft == true && buttonUsed == false && value == false) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
@@ -225,14 +256,20 @@ case 1:
 if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateRight == true && buttonUsed == false){
+} else if(navigateRight == true && buttonUsed == false && value == true){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateRight == true && buttonUsed == false && value == false){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
 if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateLeft == true && buttonUsed == false) {
+} else if(navigateLeft == true && buttonUsed == false && value == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateLeft == true && buttonUsed == false && value == false) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
@@ -241,14 +278,20 @@ case 2:
 if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateRight == true && buttonUsed == false){
+} else if(navigateRight == true && buttonUsed == false && value == true){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateRight == true && buttonUsed == false && value == false){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
 if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateLeft == true && buttonUsed == false) {
+} else if(navigateLeft == true && buttonUsed == false && value == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateLeft == true && buttonUsed == false && value == false) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
@@ -257,14 +300,20 @@ case 3:
 if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateRight == true && buttonUsed == false){
+} else if(navigateRight == true && buttonUsed == false && value == true){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateRight == true && buttonUsed == false && value == false){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
 if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateLeft == true && buttonUsed == false) {
+} else if(navigateLeft == true && buttonUsed == false && value == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateLeft == true && buttonUsed == false && value == false) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
@@ -273,14 +322,20 @@ case 4:
 if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateRight == true && buttonUsed == false){
+} else if(navigateRight == true && buttonUsed == false && value == true){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateRight == true && buttonUsed == false && value == false){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
 if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateLeft == true && buttonUsed == false) {
+} else if(navigateLeft == true && buttonUsed == false && value == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateLeft == true && buttonUsed == false && value == false) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
@@ -289,14 +344,20 @@ case 5:
 if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateRight == true && buttonUsed == false){
+} else if(navigateRight == true && buttonUsed == false && value == true){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateRight == true && buttonUsed == false && value == false){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
 if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateLeft == true && buttonUsed == false) {
+} else if(navigateLeft == true && buttonUsed == false && value == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateLeft == true && buttonUsed == false && value == false) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
@@ -305,14 +366,20 @@ case 6:
 if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateRight == true && buttonUsed == false){
+} else if(navigateRight == true && buttonUsed == false && value == true){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateRight == true && buttonUsed == false && value == false){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
 if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateLeft == true && buttonUsed == false) {
+} else if(navigateLeft == true && buttonUsed == false && value == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateLeft == true && buttonUsed == false && value == false) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
@@ -321,23 +388,26 @@ case 7:
 if(navigateRight == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index -1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateRight == true && buttonUsed == false){
+} else if(navigateRight == true && buttonUsed == false && value == true){
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateRight == true && buttonUsed == false && value == false){
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 
 if(navigateLeft == true && buttonUsed == true) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[image_index +1].src}"), url("${gallery_images[image_index].src}");`
-} else if(navigateLeft == true && buttonUsed == false) {
+} else if(navigateLeft == true && buttonUsed == false && value == true) {
+image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
+background-image: url("${gallery_images[value_index].src}"), url("${gallery_images[image_index].src}");`}
+else if(navigateLeft == true && buttonUsed == false && value == false) {
 image_body.style.cssText = `background-position: ${i * 2}px ${0}px, ${image_position + i * 2}px ${0}px;
 background-image: url("${gallery_images[last_image_index].src}"), url("${gallery_images[image_index].src}");`}
 break;
 
 // default:
 }};
-
-
-
 
 function dynamic_interval(){
 setTimeout(() =>{
@@ -346,7 +416,6 @@ if(i < 429 && i > -430) {
 disable_other_button = true;
 dynamic_interval(i);
 run_animation();
-
 
 if(navigateLeft == true) {
 i += 1.5;}
@@ -374,3 +443,5 @@ for(let i = 0; i < gallery_images.length; i++) {
 gallery_images[i].addEventListener('click', gallery_select00);}
 
 }}, i * (i / 16000));}
+
+// console.log(`image_index: ${image_index} last_index: ${last_index} first_image_index: ${first_image_index} last_image_index: ${last_image_index}`);
