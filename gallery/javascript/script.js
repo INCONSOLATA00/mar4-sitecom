@@ -65,8 +65,10 @@ navigateRight = true;
 navigate_right();
 
 } else if (first_image_index > last_image_index && first_image_index == 7 && initializer == true) {
+image_index = 7;
 navigateRight = true;
 navigate_right();
+
 
 if(j < 10){
 customInterval00();}
@@ -81,7 +83,6 @@ customInterval00();
 },1);
 }}}
 
-
 if(initializer == false){
 document.getElementById(0).style.cssText = 
 `border-radius: 0px`;
@@ -92,7 +93,6 @@ image_index = +first_image_index;
 navigateRight = true;
 navigate_right();
 }
-
 
 if(first_image_index < last_image_index && first_image_index > 0){
 
@@ -133,7 +133,6 @@ console.log(value);
 buttonState = buttonUsed;
 last_index = image_index;
 count++
-
 
 for(i = 0; i < gallery_images.length; i++){
 gallery_images[i].style.cssText =
@@ -184,7 +183,6 @@ console.log(value);
 buttonState = buttonUsed;
 last_index = image_index;
 count++
-
 
 for(i = 0; i < gallery_images.length; i++){
 gallery_images[i].style.cssText =
