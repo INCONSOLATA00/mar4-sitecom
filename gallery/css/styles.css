@@ -54,8 +54,8 @@ align-items: center;
 }
 
 .menu-options button {
-font-family: 'Caveat', cursive;
-font-size: 16px;
+font-family: 'Manrope', sans-serif;
+font-size: 10.2px;
 color: #453f47;
 border-style: none;
 height: 40px;
@@ -138,6 +138,37 @@ top: 151px;
 box-shadow: -20px 30px 240px 70px;
 }
 
+.image-info-wrapper {
+position: absolute;
+background-color: black;
+width: 274px;
+height: 114px;
+bottom: 134px;
+right: 277px;
+border-radius: 1.7px;
+opacity: 0.22;
+}
+
+.image-info-wrapper + div {
+display: flex;
+justify-content: center;
+position: absolute;
+width: 274px;
+height: 114px;
+bottom: 134px;
+right: 277px;
+}
+
+.image-info-wrapper + div > p {
+font-family: 'Manrope', sans-serif;
+font-weight: 400;
+font-size: 12.3px;
+text-align: center;
+color: white;
+width: 250px;
+margin-top: 12.3px;
+}
+
 main > button {
 width: 40px;
 height: 200px;
@@ -190,7 +221,21 @@ background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(134, 144, 153
 height: 222px;
 top: 319px;
 }
-    
+
+#footer, .center{
+width: 1345px;
+height: 220px;
+}
+
+.center > p{
+font-size: 12.46px;
+display: flex;
+justify-content: center;
+color: white;
+position: relative;
+z-index: 2;
+}
+
 .page-flow {
 display: flex;
 flex-direction: column;

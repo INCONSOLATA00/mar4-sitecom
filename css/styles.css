@@ -54,8 +54,8 @@ align-items: center;
 }
 
 .menu-options button {
-font-family: 'Caveat', cursive;
-font-size: 16px;
+font-family: 'Manrope', sans-serif;
+font-size: 10.2px;
 color: #453f47;
 border-style: none;
 height: 40px;
@@ -144,7 +144,6 @@ font-size: 12.46px;
 width: 160px;
 height: 10px;
 top: 859px;
-opacity: 0.4;
 z-index: 3;
 }
     
