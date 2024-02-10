@@ -69,7 +69,29 @@
     
     
     </div>
-    <script src="javascript/script.js"></script>
+
+<!-- see form submission -->
+
+<div class="form-wrapper">
+<form action="https://api.web3forms.com/submit" method="POST">
+
+    <h4>Get In Touch With Us!</h4>
+    <input type="hidden" name="access_key" value="6b27a6cf-ff7e-4733-85a3-a85f84e7db23">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email address"  required>
+    <textarea name="message" rows="10" placeholder="Submit inquiry" required></textarea>
+    <p>just let us know what kind of work you're looking to get done, and we'll give you a quote!</p>
+    <div class="h-captcha" data-captcha="false"></div>
+    <button type="submit">submit</button>
+
+</form>
+<button class="cancel" type="cancel">cancel</button>
+
+</div> <!-- form wrapper -->
+<div class="form-wrapper-outline"></div>
+
+<script src="https://web3forms.com/client/script.js" async defer></script>
+<script src="javascript/script.js"></script>
 
 </body>
 </html>
