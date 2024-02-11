@@ -1,6 +1,19 @@
+let visibility = 'hidden';
+
+function setVisibilityFalse() { // when "cancel" is clicked
+visibility = 'hidden';
+console.log('hidden');
+}
+
+function setVisibilityTrue() { // when "contact us" is engaged and the current page is the gallery page*
+visibility = 'visible';
+console.log('visible');
+}
+
 const also_background_image = document.querySelector('.also-background-image');
 const background_image =  document.querySelector('.background-image');
 const card_paragraph = document.querySelector('#card p:nth-child(2)');
+
 
 cardTitle = document.querySelector('#card p:nth-child(1)');
 const card = document.querySelector('#card p:nth-child(2)');

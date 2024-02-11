@@ -130,7 +130,7 @@ width: 861px;
 top: 150px;
 }
 
-.body-layer-bottom { /* gradient / copyright */
+.body-layer-bottom {
 display: flex;
 justify-content: center;
 background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(134, 144, 153, 0.9));
@@ -285,7 +285,7 @@ margin: 8px;
 input, textarea {
 width: 280px;
 background-color: #f7f7f6;
-border: solid 1px #364050;
+border: solid 1px rgba(0, 0, 0, 0.3);
 outline: none;
 border-radius: 2.13px;
 }
@@ -295,8 +295,10 @@ resize: none;
 margin-top: 8px;
 }
 
-.sticky-wrapper { /* hide this on cancel */
+.sticky-wrapper { /* hide this on cancel                     ***                       SEE HERE*/
+visibility: hidden;
 display: flex;
+background-color: rgba(0, 0, 0, 0.5);
 box-sizing: border-box;
 justify-content: center;
 position: absolute;
@@ -321,15 +323,6 @@ height: 413px;
 top: 60px;
 }
 
-.form-wrapper-outline {
-position: absolute;
-border-radius: 5px;
-border: solid #364050;
-border-width: 1px;
-width: 437px;
-height: 419px;
-}
-
 .form-wrapper, form {
 background-color: cyan;
 display: flex;
@@ -344,13 +337,11 @@ font-size: 11px;;
 text-align: center;
 color: #364050;
 width: 270px;
-opacity: 0.5;
 }
 
-h4 {
-font-family: 'Caveat', cursive;
-font-size: 23px;
-margin-bottom: 10px;
+.form-wrapper p:nth-child(1) {
+font-size: 22px;
+margin-bottom: 15px;
 color: #757575;
 }
 
@@ -376,8 +367,16 @@ right: 45px
 }
 
 .cancel, form button {
-background-color: #c6c6c6;
+background-color: #b3b8bd;
 margin: 10px 2px 10px;
+}
+
+form button:hover {
+background-color: #e8f0fe;
+}
+
+.cancel:hover {
+background-color: #e8f0fe;
 }
 
 ::placeholder {
