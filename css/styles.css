@@ -90,7 +90,7 @@ height: 44px;
 }
 
 .menu-options button:hover {
-background-color: #9ce6ff;
+background-color: #e8f0fe;
 }
 
 .body-layer-top { /* unique exception */
@@ -284,7 +284,8 @@ margin: 8px;
 
 input, textarea {
 width: 280px;
-border: solid 1px;
+background-color: #f7f7f6;
+border: solid 1px #364050;
 outline: none;
 border-radius: 2.13px;
 }
@@ -316,20 +317,18 @@ width: 431px;
 height: 413px;
 bottom: 88px;
 left: 501px;
-z-index: 5;
+z-index: 6;
 }
 
 .form-wrapper-outline {
 position: fixed;
 border-radius: 5px;
-border-style: solid;
+border: solid #364050;
 border-width: 1px;
-width: 435px;
-height: 418px;
-
-bottom: 88px;
-left: 501px;
-
+width: 437px;
+height: 419px;
+bottom: 87px;
+left: 500px;
 z-index: 5;
 }
 
