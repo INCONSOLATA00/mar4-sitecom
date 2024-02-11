@@ -1,14 +1,23 @@
+const form = document.querySelector('.sticky-wrapper');
+const cancel_form = document.querySelector('.cancel');
+
+const form_fields00 = document.getElementsByName('name')[0];
+const form_fields01 = document.getElementsByName('email')[0];
+const form_fields02 = document.querySelector('textarea');
+
 let visibility = 'hidden';
-
-function setVisibilityFalse() { // when "cancel" is clicked
+function setVisibilityFalse() { // not being used
 visibility = 'hidden';
-console.log('hidden');
+form.style.visibility = visibility;
+
+form_fields00.value = "";
+form_fields01.value = "";
+form_fields02.value = "";
 }
 
-function setVisibilityTrue() { // when "contact us" is engaged and the current page is the gallery page*
+function setVisibilityTrue() {
 visibility = 'visible';
-console.log('visible');
-}
+form.style.visibility = visibility;}
 
 const also_background_image = document.querySelector('.also-background-image');
 const background_image =  document.querySelector('.background-image');

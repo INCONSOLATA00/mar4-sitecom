@@ -20,8 +20,8 @@
     <div class="body-layer-top">
     <div class="menu-options">
 
-    <button onclick="location.href='gallery/index.html'; setVisibilityFalse();" type="button">Gallery</button>
-    <button onclick="location.href='/index.html'; setVisibilityTrue();" type="button">Contact Us!</button>
+    <button onclick="location.href='gallery/index.html'" type="button">Gallery</button>
+    <button onclick="setVisibilityTrue();" type="button">Contact Us!</button>
     </div>
     
 
@@ -66,8 +66,6 @@
     <div class="body-layer-bottom">
     <p>Copyright © MAR4 - Ltd. 2024</p> <!-- implicit footer -->
     </div>  
-    
-    
     </div>
 
 <!-- see form submission -->
@@ -86,7 +84,8 @@
     <button type="submit">submit</button>
 
 </form>
-<button class="cancel" type="cancel">cancel</button>
+<button class="cancel" onclick="setVisibilityFalse();" type="cancel">cancel</button>
+<!-- <button onclick="setVisibilityTrue();" type="button">Contact Us!</button> -->
 
 </div> <!-- form wrapper -->
 </div>
