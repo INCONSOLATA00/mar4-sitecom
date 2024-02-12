@@ -1,9 +1,9 @@
 const form = document.querySelector('.sticky-wrapper');
-const cancel_form = document.querySelector('.cancel');
 
 const form_fields00 = document.getElementsByName('name')[0];
 const form_fields01 = document.getElementsByName('email')[0];
 const form_fields02 = document.querySelector('textarea');
+
 
 let visibility = 'hidden';
 function setVisibilityFalse() { // not being used
@@ -12,8 +12,7 @@ form.style.visibility = visibility;
 
 form_fields00.value = "";
 form_fields01.value = "";
-form_fields02.value = "";
-}
+form_fields02.value = "";}
 
 function setVisibilityTrue() {
 visibility = 'visible';
@@ -47,12 +46,8 @@ setTimeout(()=>{
 if(k > 0) {
 k -= 0.5;
 
-
 dynamic_interval01(k);
-console.log(`see k: ${k}`);
-
-card_paragraph.style.cssText = `opacity: ${k / 10}`;
-}
+card_paragraph.style.cssText = `opacity: ${k / 10}`;}
 
 }, multiplier * multiplier * (multiplier / 6));}
 
@@ -69,8 +64,6 @@ if(j < 10) {
 j += 0.5;
 
 dynamic_interval00(j);
-console.log(j);
-
 card_paragraph.style.cssText = `opacity: ${j / 10}`; // includes additional features*
 }
 
@@ -101,20 +94,25 @@ dynamic_interval01();}, 4000);
 
 cardTitle.textContent = card_text[i].title;
 card.textContent = card_text[i].text;
-} else if (i == 3) {
+
+console.log(`this is the current index ${i}`);
+
+} else if (i == 3) { console.log('fired'); // SEE HERE
 i = 0;    
 
 recursion02();
+k = 10;
 j = 0;
+
 dynamic_interval00();
+setTimeout(()=>{
+dynamic_interval01();}, 4000);
 
 cardTitle.textContent = card_text[i].title;
 card.textContent = card_text[i].text;
 }
 ;}, 5000)}
 recursion02();
-
-
 
 
 

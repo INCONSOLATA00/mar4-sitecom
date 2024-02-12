@@ -1,3 +1,9 @@
+const form = document.querySelector('.sticky-wrapper'); // find way to change variable in other javascript document***
+
+function setVisibilityTrue() {
+visibility = 'visible';
+form.style.visibility = visibility;}
+
 const gallery_images = document.querySelectorAll('img');
 const image_body = document.querySelector('main > div');
 const image_info = document.querySelector('.image-info-wrapper + div > p')
