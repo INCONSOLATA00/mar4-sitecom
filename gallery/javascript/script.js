@@ -11,6 +11,62 @@ const image_info = document.querySelector('.image-info-wrapper + div > p')
 const left_button = document.getElementsByClassName('left')[0];
 const right_button = document.getElementsByClassName('right')[0];
 
+const header = document.querySelector('#header');
+const header_buttons = document.querySelector('.body-layer-top > div');
+
+let scrollValue;
+let lastScrollValue;
+let changeValues = false;
+
+let l = 0;
+dynamic_interval00();
+function dynamic_interval00(multiplier = 1){
+setTimeout(()=>{
+
+if(l < 10 && changeValues == false) {
+l += 0.5;
+dynamic_interval00(l);
+console.log(l);
+
+header.style.cssText = `padding-top: ${l}px`;
+header_buttons.style.cssText = `padding-top: ${l}px`;
+}
+
+if(l > 0 && changeValues == true) {
+l -= 0.5;
+dynamic_interval00(l);
+console.log(l);
+
+header.style.cssText = `padding-top: ${l}px`;
+header_buttons.style.cssText = `padding-top: ${l}px`;
+}
+
+}, multiplier * multiplier * (multiplier / 6));}
+
+window.addEventListener("scroll",()=>{
+lastScrollValue = scrollValue;
+scrollValue = this.scrollY;
+
+// console.log(scrollY);
+
+if(this.scrollY == 0) {
+changeValues = false;
+dynamic_interval00();
+} 
+
+if (this.scrollY < 10 && scrollValue < lastScrollValue) {
+l = 0
+dynamic_interval00();
+}
+// --------------------
+
+if (this.scrollY > 40 && scrollValue > lastScrollValue && this.scrollY < 51) { console.log('fired');
+changeValues = true;
+l = 10
+dynamic_interval00();
+}
+});
+
 const gallery_text = [
 
 { text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis hendrerit elit eros, suscipit vestibulum libero dictum ut.(1)" },
