@@ -67,9 +67,11 @@ border-radius: 3.5px 0px 0px 2.5px;
 background-color: #ebebea;
 border-style: none;
 border-left: 0.6px solid rgba(0, 0, 0, 0.5); 
+border-right: 0.6px solid rgba(0, 0, 0, 0.5); 
 border-top: 2.1px solid rgba(0, 0, 0, 0.5);
 border-bottom: 2.1px solid rgba(0, 0, 0, 0.5);
-width: 60px;
+width: 75px;
+height: 40px;
 margin-right: 3px;
 }
 
@@ -103,10 +105,9 @@ z-index: 2;
 
 .body-layer-top > div {
 position: inherit;
-width: 195px;
 height: 50px;
 top: 11.7px;
-left: 1150px;
+left: 1242px;
 }
 
 /*
@@ -209,7 +210,7 @@ height: 109px;
 top: 416px;
 }
 
-.image-selection > img { /* SEE HERE */
+.image-selection > img {
 border: 1px solid;
 width: 105.4px;
 height: 109px;
@@ -276,7 +277,7 @@ border-color: #d3d2d0;
 position: absolute;
 background-image: url("/images/brands-people-dwySHxLsofc-unsplash.jpg");
 background-position-y: 54%;
-height: 382px;
+height: 394px;
 width: 1345px;
 top: 539px;
 box-shadow: 3px -8px 8px -5px;

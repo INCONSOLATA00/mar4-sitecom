@@ -1,12 +1,66 @@
 const form = document.querySelector('.sticky-wrapper');
-
 const form_fields00 = document.getElementsByName('name')[0];
 const form_fields01 = document.getElementsByName('email')[0];
 const form_fields02 = document.querySelector('textarea');
 
+const header = document.querySelector('#header');
+const header_buttons = document.querySelector('.body-layer-top > div');
+
+let scrollValue;
+let lastScrollValue;
+let changeValues = false;
+
+let l = 0;
+dynamic_interval();
+function dynamic_interval(multiplier = 1){
+setTimeout(()=>{
+
+if(l < 10 && changeValues == false) {
+l += 0.5;
+dynamic_interval(l);
+console.log(l);
+
+header.style.cssText = `padding-top: ${l}px`;
+header_buttons.style.cssText = `padding-top: ${l}px`;
+}
+
+if(l > 0 && changeValues == true) {
+l -= 0.5;
+dynamic_interval(l);
+console.log(l);
+
+header.style.cssText = `padding-top: ${l}px`;
+header_buttons.style.cssText = `padding-top: ${l}px`;
+}
+
+}, multiplier * multiplier * (multiplier / 6));}
+
+window.addEventListener("scroll",()=>{
+lastScrollValue = scrollValue;
+scrollValue = this.scrollY;
+
+// console.log(scrollY);
+
+if(this.scrollY == 0) {
+changeValues = false;
+dynamic_interval();
+} 
+
+if (this.scrollY < 10 && scrollValue < lastScrollValue) {
+l = 0
+dynamic_interval();
+}
+// --------------------
+
+if (this.scrollY > 40 && scrollValue > lastScrollValue && this.scrollY < 51) { console.log('fired');
+changeValues = true;
+l = 10
+dynamic_interval();
+}
+});
 
 let visibility = 'hidden';
-function setVisibilityFalse() { // not being used
+function setVisibilityFalse() {
 visibility = 'hidden';
 form.style.visibility = visibility;
 
@@ -19,9 +73,8 @@ visibility = 'visible';
 form.style.visibility = visibility;}
 
 const also_background_image = document.querySelector('.also-background-image');
-const background_image =  document.querySelector('.background-image');
+const background_image = document.querySelector('.background-image');
 const card_paragraph = document.querySelector('#card p:nth-child(2)');
-
 
 cardTitle = document.querySelector('#card p:nth-child(1)');
 const card = document.querySelector('#card p:nth-child(2)');
@@ -51,8 +104,7 @@ card_paragraph.style.cssText = `opacity: ${k / 10}`;}
 
 }, multiplier * multiplier * (multiplier / 6));}
 
-
-    // --------------------------------------------
+// --------------------------------------------
 
 let j = 0;
 dynamic_interval00(); // includes fade in
@@ -64,16 +116,13 @@ if(j < 10) {
 j += 0.5;
 
 dynamic_interval00(j);
-card_paragraph.style.cssText = `opacity: ${j / 10}`; // includes additional features*
+card_paragraph.style.cssText = `opacity: ${j / 10}`;
 }
 
 }, multiplier * multiplier * (multiplier / 6));}
 
-
-// default
 cardTitle.textContent = card_text[i].title;
 card.textContent = card_text[i].text;
-
 
 (function() {
 setTimeout(()=>{
@@ -95,10 +144,8 @@ dynamic_interval01();}, 4000);
 cardTitle.textContent = card_text[i].title;
 card.textContent = card_text[i].text;
 
-console.log(`this is the current index ${i}`);
-
-} else if (i == 3) { console.log('fired'); // SEE HERE
-i = 0;    
+} else if (i == 3) {
+i = 0; 
 
 recursion02();
 k = 10;
@@ -113,7 +160,6 @@ card.textContent = card_text[i].text;
 }
 ;}, 5000)}
 recursion02();
-
 
 
 
@@ -133,14 +179,12 @@ alsoRecursion00();}
 ;}, 10)}
 recursion00();
 
-
 function alsoRecursion00() {
 
 background_image.style.cssText =
 `background-position: ${(-4000 + x) / 19}px ${(-13700 + y) / 19}px;`
 also_background_image.style.cssText =
 `background-position: ${(-2000 + x) / 15}px ${(-13700 + y) / 15}px;`
-    
 setTimeout(() =>{
 if(x > 0) {
 x -= 1;
@@ -150,7 +194,6 @@ x = 0;
 recursion00();
 }
 ;}, 10)}
-
 
 function recursion01() {
 setTimeout(() =>{
@@ -165,13 +208,11 @@ alsoRecursion01();
 recursion01();
 function alsoRecursion01() {
 setTimeout(() =>{
-        
 if(y > 0) {
 y -= 1;
 alsoRecursion01();
 } else if(y == 0) {
 y = 0;
 recursion01();}
-        
 ;}, 10)}
 })();

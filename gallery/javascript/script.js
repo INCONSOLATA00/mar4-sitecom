@@ -1,4 +1,4 @@
-const form = document.querySelector('.sticky-wrapper'); // find way to change variable in other javascript document***
+const form = document.querySelector('.sticky-wrapper');
 
 function setVisibilityTrue() {
 visibility = 'visible';
