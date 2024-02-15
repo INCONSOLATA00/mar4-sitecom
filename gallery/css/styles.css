@@ -287,7 +287,7 @@ z-index: 2;
 margin-bottom: 30px;
 }
 
-#testimonials > div { /* see here */
+#testimonials > div {
 display: flex;
 align-items: center;
 flex-direction: column;
@@ -318,13 +318,13 @@ opacity: 0.8;
 
 
 #testimonials > div > p:nth-child(1) {
-text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3); /* was 0.2 */
+text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3);
 margin: 20px 0px 23px;
 }
 
 #testimonials > div > p:nth-child(2) {
-text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3); /* was 0.2 */
-margin-top: -36px;
+text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3);
+margin: -36px 0px 3px;
 }
 
 .page-flow {
