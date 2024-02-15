@@ -159,7 +159,7 @@ height: 100%;
 
 .texture-top-portion {
 position: absolute;
-background-image: url(images/brands-people-dwySHxLsofc-unsplash\ \(flipped\).jpg);
+background-image: url("../images/brands-people-dwySHxLsofc-unsplash\ \(flipped\).jpg");
 background-position-y: 1597px;
 background-position-x: -762px;
 width: 1345px;
@@ -237,7 +237,7 @@ transform:  scale(1.03);
 
 .texture-bottom-portion {
 position: absolute;
-background-image: url(images/brands-people-dwySHxLsofc-unsplash.jpg);
+background-image: url("../images/brands-people-dwySHxLsofc-unsplash.jpg");
 background-position-y: 56%;
 height: 461px;
 width: 1345px;
@@ -255,7 +255,7 @@ height: 430px;
 
 .also-background-image {
 position: absolute;
-background-image: url(images/IMG_2823\ \(larger\).jpg);
+background-image: url("../images/IMG_2823\ \(larger\).jpg");
 background-repeat: no-repeat;
 width: 1345px;
 height: 201px;
@@ -304,7 +304,7 @@ margin: 0;
 
 .background-image {
 position: absolute;
-background-image: url(images/IMG_2823.jpg);
+background-image: url("../images/IMG_2823.jpg");
 background-repeat: no-repeat;
 width: 916px;
 height: 162px;
