@@ -231,6 +231,10 @@ width: 1345px;
 height: 136px;
 }
 
+.clients > img:hover {
+transform:  scale(1.03);
+}
+
 .texture-bottom-portion {
 position: absolute;
 background-image: url("/images/brands-people-dwySHxLsofc-unsplash.jpg");

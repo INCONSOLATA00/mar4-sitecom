@@ -309,6 +309,13 @@ text-align: center;
 width: 188px;
 }
 
+#testimonials img {
+position: inherit;
+bottom: 191px;
+margin-left: -212px;
+opacity: 0.8;
+}
+
 
 #testimonials > div > p:nth-child(1) {
 text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3); /* was 0.2 */
@@ -317,7 +324,7 @@ margin: 20px 0px 23px;
 
 #testimonials > div > p:nth-child(2) {
 text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3); /* was 0.2 */
-margin-top: -5px;
+margin-top: -36px;
 }
 
 .page-flow {
