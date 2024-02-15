@@ -142,7 +142,7 @@ height: 222px;
 position: absolute;
 color: white;
 font-size: 12.46px;
-width: 386px;
+width: 399px;
 height: 10px;
 top: 882px;
 z-index: 3;
@@ -204,7 +204,8 @@ margin-top: 44px;
 background-color: #333333;
 height: 150px;
 width: 1360px;
-opacity: 0.02;
+opacity: 0.01;
+border-radius: 40px;
 margin: 5px;
 }
 
